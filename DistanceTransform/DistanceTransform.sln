@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DistanceTransform", "DistanceTransform.pyproj", "{B41ECC6F-8457-411B-AD2A-024AA41CDBC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B41ECC6F-8457-411B-AD2A-024AA41CDBC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41ECC6F-8457-411B-AD2A-024AA41CDBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C73630DC-9A78-4D7E-8F6F-7341F7BFE3F6}
+	EndGlobalSection
+EndGlobal

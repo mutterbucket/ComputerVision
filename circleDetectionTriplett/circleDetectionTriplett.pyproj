@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>f9c13c9b-d518-4cf5-817a-263d5c66e97a</ProjectGuid>
+    <ProjectGuid>5f952426-b25c-48c8-b71b-f1e4ea34e657</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>circleDetectionTriplett.py</StartupFile>
+    <StartupFile>CircleDetectionTriplett.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>circleDetectionTriplett</Name>
-    <RootNamespace>circleDetectionTriplett</RootNamespace>
+    <Name>CircleDetectionTriplett</Name>
+    <RootNamespace>CircleDetectionTriplett</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="circleDetectionTriplett.py" />
+    <Compile Include="CircleDetectionTriplett.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

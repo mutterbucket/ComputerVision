@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "circleDetectionTriplett", "circleDetectionTriplett.pyproj", "{F9C13C9B-D518-4CF5-817A-263D5C66E97A}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CircleDetectionTriplett", "CircleDetectionTriplett.pyproj", "{5F952426-B25C-48C8-B71B-F1E4EA34E657}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9C13C9B-D518-4CF5-817A-263D5C66E97A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9C13C9B-D518-4CF5-817A-263D5C66E97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F952426-B25C-48C8-B71B-F1E4EA34E657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F952426-B25C-48C8-B71B-F1E4EA34E657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {66527A6E-B218-4580-9BFB-97107B06938C}
+		SolutionGuid = {AE15B226-455D-4E46-B2DC-16698CAD0B42}
 	EndGlobalSection
 EndGlobal

@@ -39,7 +39,7 @@ def findGradients(img):
 
 def output(img):
     pathIn = "C:\\Users\\a2tri\\source\\repos\\ComputerVision\\CircleDetectionTriplett\\Steps\\" 
-    imgName = "gauges.jpg"
+    imgName = "cylinders.jpg"
     pathOut = pathIn + "Step_"+ str(np.random.randint(100)) + "_" + imgName
     io.imsave(pathOut, img)
 
@@ -98,15 +98,14 @@ def rightRound(img, r, original):
         index = np.unravel_index(accumulator.argmax(), accumulator.shape)
         
         print ("Greatest Votes: " + str(biggest) + ", Radius: " + str(r))
-        print("85%: " + str(0.85 * accumulator[index[0]][index[1]]))
-        #print ("Mean: " + str(av))
+        print("80%: " + str(np.floor(0.8 * accumulator[index[0]][index[1]])))
         mostVotes.insert(0, [biggest, index, r]) # most votes at (y,x) coordinates
         try:
-            if (mostVotes[1][0] < (0.85 * accumulator[index[0]][index[1]])): # Large increases are circle centers
+            if (mostVotes[1][0] < (0.8 * accumulator[index[0]][index[1]])): # Large increases are circle centers
                 original = drawCircles(original, mostVotes[0])
                 cir_centers.insert(0, mostVotes[0][0])
                 continue
-            if (cir_centers[0] > (mostVotes[0][0] * 0.90)): # If the prior was a center, see if current is also
+            if ((cir_centers[0] * 0.95) < mostVotes[0][0]): # If the prior was a center, see if current is also
                 original = drawCircles(original, mostVotes[0])
         except IndexError:
             pass
@@ -118,7 +117,7 @@ def rightRound(img, r, original):
 ##################################### MAIN #####################################
 
 pathIn = "C:\\Users\\a2tri\\source\\repos\\ComputerVision\\CircleDetectionTriplett\\" 
-imgName = "gauges.jpg"
+imgName = "cylinders.jpg"
 pathOut = pathIn + "1_" + imgName
 cannyOut = pathIn + "canny_" + imgName
 kernel = np.ones((5,5))
@@ -129,12 +128,12 @@ img = io.imread(pathIn + imgName)
 #img = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
 #img = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
 
-canned = cv2.Canny(img, 1200, 1600, True, 5)   # Only works for color images
+canned = cv2.Canny(img, 3000, 3800, True, 5)   # Only works for color images
 #gradients, angles = findGradients(canned)
 #out = cv2.Canny(np.uint8(img), 100, 200, True, 5)
-
-out = rightRound(canned, 10, img)
 io.imsave(cannyOut, canned)
+
+out = rightRound(canned, 4, img)
 io.imsave(pathOut, out)
 
 print ("Complete!")

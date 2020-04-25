@@ -1,5 +1,4 @@
 import numpy as np
-import scipy.ndimage as nd
 from skimage import io
 import cv2
 
@@ -39,7 +38,7 @@ def findGradients(img):
 
 def output(img):
     pathIn = "C:\\Users\\a2tri\\source\\repos\\ComputerVision\\CircleDetectionTriplett\\Steps\\" 
-    imgName = "cylinders.jpg"
+    imgName = "miata.jpg"
     pathOut = pathIn + "Step_"+ str(np.random.randint(100)) + "_" + imgName
     io.imsave(pathOut, img)
 
@@ -54,13 +53,6 @@ def drawCircles(img, data):
     img[data[1][0]-1][data[1][1]] = [a,255,0]
     img[data[1][0]][data[1][1]-1] = [a,255,0]
     output(img)
-    #rgb = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
-    #mostVotes.sort(reverse=True)
-    #threshold = int(np.floor(mostVotes[0][0] * 0.9))
-    #while (mostVotes[0][0] > threshold):
-    #    data = mostVotes[0]
-
-    #    del(mostVotes[0])
 
     return img
 
@@ -83,7 +75,6 @@ def rightRound(img, r, original):
         centers = nonzero.copy()
         while (len(centers) > 0):
 
-
             scratch = np.zeros((len(img), len(img[0]))) # Space used to draw a circle for each edge point
             scratch = cv2.circle(scratch, (centers[0][0], centers[0][1]), r, (255,255,255), 1) # Draw a circle
             point = [] # List of all points on the circle with radius r centered at centers[0]
@@ -97,11 +88,12 @@ def rightRound(img, r, original):
         biggest = max(map(max, accumulator))
         index = np.unravel_index(accumulator.argmax(), accumulator.shape)
         
-        print ("Greatest Votes: " + str(biggest) + ", Radius: " + str(r))
-        print("80%: " + str(np.floor(0.8 * accumulator[index[0]][index[1]])))
+        print (str(biggest), end=", ")
+        #print ("Greatest Votes: " + str(biggest) + ", Radius: " + str(r))
+        #print("75%: " + str(np.floor(0.75 * accumulator[index[0]][index[1]])))
         mostVotes.insert(0, [biggest, index, r]) # most votes at (y,x) coordinates
         try:
-            if (mostVotes[1][0] < (0.8 * accumulator[index[0]][index[1]])): # Large increases are circle centers
+            if (mostVotes[1][0] < (0.75 * accumulator[index[0]][index[1]])): # Large increases are circle centers
                 original = drawCircles(original, mostVotes[0])
                 cir_centers.insert(0, mostVotes[0][0])
                 continue
@@ -117,23 +109,16 @@ def rightRound(img, r, original):
 ##################################### MAIN #####################################
 
 pathIn = "C:\\Users\\a2tri\\source\\repos\\ComputerVision\\CircleDetectionTriplett\\" 
-imgName = "cylinders.jpg"
+imgName = "miata.jpg"
 pathOut = pathIn + "1_" + imgName
 cannyOut = pathIn + "canny_" + imgName
 kernel = np.ones((5,5))
 
-#grey = io.imread(pathIn + imgName, as_gray=True) # pixels are not uint8
 img = io.imread(pathIn + imgName)
-#img = blur(img, 3, 15)
-#img = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
-#img = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
-
-canned = cv2.Canny(img, 3000, 3800, True, 5)   # Only works for color images
-#gradients, angles = findGradients(canned)
-#out = cv2.Canny(np.uint8(img), 100, 200, True, 5)
+canned = cv2.Canny(img, 3200, 3800, True, 5)   # Only works for color images
 io.imsave(cannyOut, canned)
 
-out = rightRound(canned, 4, img)
+out = rightRound(canned, 3, img)
 io.imsave(pathOut, out)
 
 print ("Complete!")

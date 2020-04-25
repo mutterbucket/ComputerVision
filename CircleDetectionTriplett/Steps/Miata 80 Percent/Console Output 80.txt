@@ -1,0 +1,172 @@
+Creating Accumulators
+Voting
+Greatest Votes: 13, Radius: 3
+80%: 10.0
+Greatest Votes: 14, Radius: 4
+80%: 11.0
+Greatest Votes: 18, Radius: 5
+80%: 14.0
+Drawing Circle...
+Greatest Votes: 18, Radius: 5
+80%: 14.0
+Drawing Circle...
+Greatest Votes: 20, Radius: 6
+80%: 16.0
+Drawing Circle...
+Greatest Votes: 23, Radius: 7
+80%: 18.0
+Drawing Circle...
+Greatest Votes: 25, Radius: 8
+80%: 20.0
+Drawing Circle...
+Greatest Votes: 27, Radius: 9
+80%: 21.0
+Drawing Circle...
+Greatest Votes: 33, Radius: 10
+80%: 26.0
+Drawing Circle...
+Greatest Votes: 35, Radius: 11
+80%: 28.0
+Drawing Circle...
+Greatest Votes: 38, Radius: 12
+80%: 30.0
+Drawing Circle...
+Greatest Votes: 41, Radius: 13
+80%: 32.0
+Drawing Circle...
+Greatest Votes: 37, Radius: 14
+80%: 29.0
+Drawing Circle...
+Greatest Votes: 39, Radius: 15
+80%: 31.0
+Drawing Circle...
+Greatest Votes: 42, Radius: 16
+80%: 33.0
+Drawing Circle...
+Greatest Votes: 38, Radius: 17
+80%: 30.0
+Drawing Circle...
+Greatest Votes: 42, Radius: 18
+80%: 33.0
+Drawing Circle...
+Greatest Votes: 37, Radius: 19
+80%: 29.0
+Drawing Circle...
+Greatest Votes: 40, Radius: 20
+80%: 32.0
+Drawing Circle...
+Greatest Votes: 38, Radius: 21
+80%: 30.0
+Drawing Circle...
+Greatest Votes: 42, Radius: 22
+80%: 33.0
+Drawing Circle...
+Greatest Votes: 41, Radius: 23
+80%: 32.0
+Drawing Circle...
+Greatest Votes: 51, Radius: 24
+80%: 40.0
+Drawing Circle...
+Greatest Votes: 48, Radius: 25
+80%: 38.0
+Drawing Circle...
+Greatest Votes: 50, Radius: 26
+80%: 40.0
+Drawing Circle...
+Greatest Votes: 48, Radius: 27
+80%: 38.0
+Drawing Circle...
+Greatest Votes: 58, Radius: 28
+80%: 46.0
+Drawing Circle...
+Greatest Votes: 54, Radius: 29
+80%: 43.0
+Drawing Circle...
+Greatest Votes: 51, Radius: 30
+80%: 40.0
+Drawing Circle...
+Greatest Votes: 52, Radius: 31
+80%: 41.0
+Drawing Circle...
+Greatest Votes: 55, Radius: 32
+80%: 44.0
+Drawing Circle...
+Greatest Votes: 51, Radius: 33
+80%: 40.0
+Drawing Circle...
+Greatest Votes: 55, Radius: 34
+80%: 44.0
+Drawing Circle...
+Greatest Votes: 59, Radius: 35
+80%: 47.0
+Drawing Circle...
+Greatest Votes: 59, Radius: 36
+80%: 47.0
+Drawing Circle...
+Greatest Votes: 55, Radius: 37
+80%: 44.0
+Drawing Circle...
+Greatest Votes: 55, Radius: 38
+80%: 44.0
+Drawing Circle...
+Greatest Votes: 58, Radius: 39
+80%: 46.0
+Drawing Circle...
+Greatest Votes: 56, Radius: 40
+80%: 44.0
+Drawing Circle...
+Greatest Votes: 70, Radius: 41
+80%: 56.0
+Drawing Circle...
+Greatest Votes: 59, Radius: 42
+80%: 47.0
+Drawing Circle...
+Greatest Votes: 58, Radius: 43
+80%: 46.0
+Drawing Circle...
+Greatest Votes: 66, Radius: 44
+80%: 52.0
+Drawing Circle...
+Greatest Votes: 83, Radius: 45
+80%: 66.0
+Drawing Circle...
+Greatest Votes: 83, Radius: 45
+80%: 66.0
+Drawing Circle...
+Greatest Votes: 70, Radius: 46
+80%: 56.0
+Greatest Votes: 81, Radius: 47
+80%: 64.0
+Drawing Circle...
+Greatest Votes: 82, Radius: 48
+80%: 65.0
+Drawing Circle...
+Greatest Votes: 78, Radius: 49
+80%: 62.0
+Greatest Votes: 80, Radius: 50
+80%: 64.0
+Drawing Circle...
+Greatest Votes: 78, Radius: 51
+80%: 62.0
+Greatest Votes: 73, Radius: 52
+80%: 58.0
+Greatest Votes: 72, Radius: 53
+80%: 57.0
+Greatest Votes: 79, Radius: 54
+80%: 63.0
+Drawing Circle...
+Greatest Votes: 71, Radius: 55
+80%: 56.0
+Greatest Votes: 71, Radius: 56
+80%: 56.0
+Greatest Votes: 77, Radius: 57
+80%: 61.0
+Greatest Votes: 79, Radius: 58
+80%: 63.0
+Drawing Circle...
+Greatest Votes: 74, Radius: 59
+80%: 59.0
+Greatest Votes: 71, Radius: 60
+80%: 56.0
+Greatest Votes: 75, Radius: 61
+80%: 60.0

@@ -1,11 +1,9 @@
 import numpy as np
 from skimage import io,data,exposure,color
 from skimage.feature import hog, canny
-from skimage.transform import hough_circle, hough_ellipse, hough_circle_peaks
-from skimage.draw import circle_perimeter, ellipse_perimeter
 import cv2
 
-base_address = "C:\\Users\\a2tri\\source\\repos\\ComputerVision\\ChallengeTriplett\\"
+base_address = "C:\\Users\\E\\source\\repos\\ComputerVision\\ChallengeTriplett\\"
 set1_address = base_address + "data_batch_1"
 set2_address = base_address + "data_batch_2"
 set3_address = base_address + "data_batch_3"
@@ -31,12 +29,13 @@ def reshape(img):
     return image
 
 def wholeHog(img):
-    fd, hog_image = hog(img, orientations=8, pixels_per_cell=(16, 16),
-                    cells_per_block=(1, 1), visualize=True, multichannel=True)
-    # Rescale histogram for better display
-    #hog_image_rescaled = exposure.rescale_intensity(hog_image, in_range=(0, 10))
+    fd, hog_image = hog(img, orientations=9, pixels_per_cell=(2, 2),
+                    cells_per_block=(8, 8), visualize=True, multichannel=True)
     return hog_image
 
+def oneD(img):
+    flat = np.ravel(img)
+    return flat
 
 ####################################################################################
 ##                                     Main                                       ##
@@ -53,6 +52,8 @@ for x in range(10000):
     straight = list(set1.values())[2][x]
     img = reshape(straight)
     hog_image = wholeHog(img)
+    flat_hog = oneD(hog_image)
+    io.imsave(base_address + "\\hogs\\pic" + str(x) + "_norm.jpg", img)
     io.imsave(base_address + "\\hogs\\pic" + str(x) + "_hog.jpg", hog_image)
 
 print ("Done!")

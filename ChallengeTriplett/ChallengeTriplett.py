@@ -43,6 +43,14 @@ def getHog(img):
     flat_hog = oneD(hog_image)
     return flat_hog
 
+def getTriangles(distA, distB, distC):
+    angleA = np.arccos(((distB**2) + (distC**2)-(distA**2)) / (2*distB*distC))
+    angleB = np.arccos(((distC**2) + (distA**2)-(distB**2)) / (2*distC*distA))
+    angleC = np.arccos(((distA**2) + (distB**2)-(distC**2)) / (2*distA*distB))
+    angles = [angleA, angleB, angleC]
+
+    return angles
+
 ####################################################################################
 ##                                     Main                                       ##
 ####################################################################################
@@ -63,6 +71,7 @@ for x in range(100):
     dist2 = np.linalg.norm(hog1 - hog3)
     dist3 = np.linalg.norm(hog2 - hog3)
 
+    angles = getTriangles(dist1, dist2, dist3)
 
     #io.imsave(base_address + "\\hogs\\pic" + str(x) + "_norm.jpg", img)
     #io.imsave(base_address + "\\hogs\\pic" + str(x) + "_hog.jpg", hog)

@@ -43,11 +43,28 @@ def getHog(img):
     flat_hog = oneD(hog_image)
     return flat_hog
 
-def getTriangles(distA, distB, distC):
-    angleA = np.arccos(((distB**2) + (distC**2)-(distA**2)) / (2*distB*distC))
-    angleB = np.arccos(((distC**2) + (distA**2)-(distB**2)) / (2*distC*distA))
-    angleC = np.arccos(((distA**2) + (distB**2)-(distC**2)) / (2*distA*distB))
-    angles = [angleA, angleB, angleC]
+def circleIntersections(dist1, dist2, dist3, p0, p1):
+    #angle1 = np.arccos(((dist2**2) + (dist3**2)-(dist1**2)) / (2*dist2*dist3))
+    #angle2 = np.arccos(((dist3**2) + (dist1**2)-(dist2**2)) / (2*dist3*dist1))
+    #angle3 = np.arccos(((dist1**2) + (dist2**2)-(dist3**2)) / (2*dist1*dist2))
+    #angles = [angle1, angle2, angle3]
+
+    d = dist1
+    r0 = dist2
+    r1 = dist3
+
+    a = ((r0**2)-(r1**2)+(d**2))/(2*d)
+    h = np.sqrt((r0**2)-(a**2))
+
+    p2 = [a*p1[0]/d, a*p1[1]/d]
+
+    p3 = [p2[0]+(h*p1[1]/d), p2[1]+(h*p1[0]/d)]
+    p4 = [p2[0]+(h*p1[1]/d), p2[1]-(h*p1[0]/d)]
+
+
+
+    #coordinates = [[0,0], [0,dist1], [dist3*np.cos(angle3),dist3*np.sin(angle3)]]
+
 
     return angles
 
@@ -69,9 +86,12 @@ for x in range(100):
 
     dist1 = np.linalg.norm(hog1 - hog2)
     dist2 = np.linalg.norm(hog1 - hog3)
-    dist3 = np.linalg.norm(hog2 - hog3)
+    dist3 = np.linalg.norm(hog3 - hog2)
 
-    angles = getTriangles(dist1, dist2, dist3)
+    p0 = [0,0]
+    p1 = [dist1,0]
+
+    angles = circleIntersections(dist1, dist2, dist3, p0, p1)
 
     #io.imsave(base_address + "\\hogs\\pic" + str(x) + "_norm.jpg", img)
     #io.imsave(base_address + "\\hogs\\pic" + str(x) + "_hog.jpg", hog)

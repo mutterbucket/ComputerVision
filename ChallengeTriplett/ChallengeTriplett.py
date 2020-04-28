@@ -30,7 +30,7 @@ def reshape(img):
 
 def wholeHog(img):
     fd, hog_image = hog(img, orientations=9, pixels_per_cell=(2, 2),
-                    cells_per_block=(8, 8), visualize=True, multichannel=True)
+                    cells_per_block=(4, 4), visualize=True, multichannel=True)
     return hog_image
 
 def oneD(img):
@@ -48,7 +48,7 @@ set4 = unpickle(set4_address)
 set5 = unpickle(set5_address)
 testSet = unpickle(test_set_address)
 
-for x in range(10000):
+for x in range(100):
     straight = list(set1.values())[2][x]
     img = reshape(straight)
     hog_image = wholeHog(img)

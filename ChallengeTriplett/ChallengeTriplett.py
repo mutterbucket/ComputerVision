@@ -1,7 +1,10 @@
 import numpy as np
 from skimage import io,data,exposure,color
 from skimage.feature import hog, canny
+from sklearn.metrics import pairwise_distances_argmin
 import cv2
+import os
+import glob
 
 base_address = "C:\\Users\\a2tri\\source\\repos\\ComputerVision\\ChallengeTriplett\\"
 set1_address = base_address + "data_batch_1"
@@ -31,42 +34,35 @@ def reshape(img):
 def wholeHog(img):
     fd, hog_image = hog(img, orientations=9, pixels_per_cell=(2, 2),
                     cells_per_block=(4, 4), visualize=True, multichannel=True)
-    return hog_image
-
-def oneD(img):
-    flat = np.ravel(img)
-    return flat
+    return fd
 
 def getHog(img):
     img = reshape(img)
-    hog_image = wholeHog(img)
-    flat_hog = oneD(hog_image)
-    return flat_hog
+    hog_data = wholeHog(img)
+    #flat_hog = oneD(hog_image)
+    return hog_data
 
-def circleIntersections(dist1, dist2, dist3, p0, p1):
-    #angle1 = np.arccos(((dist2**2) + (dist3**2)-(dist1**2)) / (2*dist2*dist3))
-    #angle2 = np.arccos(((dist3**2) + (dist1**2)-(dist2**2)) / (2*dist3*dist1))
-    #angle3 = np.arccos(((dist1**2) + (dist2**2)-(dist3**2)) / (2*dist1*dist2))
-    #angles = [angle1, angle2, angle3]
+def kmeans(hogs, known_centers):
 
-    d = dist1
-    r0 = dist2
-    r1 = dist3
+    rand_index = np.random.randint(0, hogs.shape[0], 10)
+    
+    if (known_centers):
+        centers = np.array(known_centers)   # When testing the centers are already known
+    else:
+        centers = hogs[rand_index]          # When training the centers are random
 
-    a = ((r0**2)-(r1**2)+(d**2))/(2*d)
-    h = np.sqrt((r0**2)-(a**2))
+    while True:
+        labels = pairwise_distances_argmin(hogs, centers)
 
-    p2 = [a*p1[0]/d, a*p1[1]/d]
+        new_centers = np.array([hogs[labels == i].mean(0)
+                                for i in range(10)])
 
-    p3 = [p2[0]+(h*p1[1]/d), p2[1]+(h*p1[0]/d)]
-    p4 = [p2[0]+(h*p1[1]/d), p2[1]-(h*p1[0]/d)]
+        if np.all(centers == new_centers):
+            break
+        centers = new_centers
 
+    return centers, labels
 
-
-    #coordinates = [[0,0], [0,dist1], [dist3*np.cos(angle3),dist3*np.sin(angle3)]]
-
-
-    return angles
 
 ####################################################################################
 ##                                     Main                                       ##
@@ -79,21 +75,33 @@ set4 = unpickle(set4_address)
 set5 = unpickle(set5_address)
 testSet = unpickle(test_set_address)
 
-for x in range(100):
-    hog1 = getHog(list(set1.values())[2][x])
-    hog2 = getHog(list(set1.values())[2][x+1])
-    hog3 = getHog(list(set1.values())[2][x+2])
+img_count = 200
 
-    dist1 = np.linalg.norm(hog1 - hog2)
-    dist2 = np.linalg.norm(hog1 - hog3)
-    dist3 = np.linalg.norm(hog3 - hog2)
+hog_list = []
 
-    p0 = [0,0]
-    p1 = [dist1,0]
+print ("Hogging Data...")
+for x in range(img_count):
+    
+    hog_list.append(getHog(list(set1.values())[2][x]))
 
-    angles = circleIntersections(dist1, dist2, dist3, p0, p1)
 
-    #io.imsave(base_address + "\\hogs\\pic" + str(x) + "_norm.jpg", img)
+hogs = np.array(hog_list)
+print ("Clustering Data...")
+clusters, labels = kmeans(hogs)
+print ("Saving...")
+
+for x in range (img_count):
+    img = reshape(list(set1.values())[2][x])
+    io.imsave(base_address + "\\Clusters\\C" + str(labels[x]) + "\\pic" + str(x) + ".jpg", img)
     #io.imsave(base_address + "\\hogs\\pic" + str(x) + "_hog.jpg", hog)
+
+
+print ("Cleaning Up...")
+for x in range(10):
+    dir = base_address + "Clusters\\C" + str(x) + "\\"
+    pics = glob.glob(dir + "*.jpg")
+    for y in pics:
+        os.remove(y)
+
 
 print ("Done!")
